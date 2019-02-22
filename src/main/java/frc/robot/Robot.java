@@ -8,7 +8,6 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -25,7 +24,6 @@ public class Robot extends TimedRobot {
 	private String m_autoSelected;
 	private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
-	private DifferentialDrive drivetrain;
 	/**
 	 * This function is run when the robot is first started up and should be used
 	 * for any initialization code.
@@ -35,15 +33,6 @@ public class Robot extends TimedRobot {
 		m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
 		m_chooser.addOption("My Auto", kCustomAuto);
 		SmartDashboard.putData("Auto choices", m_chooser);
-
-		LeftDrive1 = new CANSparkMax(0, MotorType.kBrushless);
-		LeftDrive2 = new CANSparkMax(2, MotorType.kBrushless);
-		LeftDrive3 = new CANSparkMax(3, MotorType.kBrushless);
-		RightDrive1 = new CANSparkMax(4, MotorType.kBrushless);
-		RightDrive2 = new CANSparkMax(5, MotorType.kBrushless);
-		RightDrive3 = new CANSparkMax(6, MotorType.kBrushless);
-
-		drivetrain = new DifferentialDrive(LeftDrive1, RightDrive1);
 	}
 
 	/**
